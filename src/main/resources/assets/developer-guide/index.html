@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>MediaCloud Development</title>
+
+		<meta name="description" content="Developing for MediaCloud - Foundations, Features, and Frameworks">
+		<meta name="author" content="Joel Rolfe">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+		
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>MediaCloud Development</h1>
+					<p/>
+					<br>
+					<h3><font color="#ffaa00">Foundations, Features, and Frameworks</font></h3>
+				</section>
+
+				<section>
+					<h1>Let's Get Started!</h1>
+					<br>
+					<div class="fragment">
+					<p>
+						This presentation's goal is to outline core concepts, tools, and expectations for <font color="#00aaff"><b>Media Cloud Developers</b></font>
+					</p>
+					</div>
+					<br><br>
+					<div class="fragment">
+						<h3>
+							<b><font color="#ff0088">(</font> that means you <font color="#ff0088">)</font></b>
+						</h3>
+					</div>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<h2>This is what we'll cover</h2>
+					<br>
+					<ul>						
+						<li class="fragment roll-in"><a href="#/introduction"><font color="#ff0088"><b>INTRODUCTION</b></font></a> of MediaFusion LITE</li>						
+						<li class="fragment roll-in"><a href="#/environment"><font color="#ff0088"><b>ENVIRONMENT</b></font></a> configuration</li>						
+						<li class="fragment roll-in"><a href="#/documentation"><font color="#ff0088"><b>DOCUMENTATION</b></font></a> for existing services</li>
+						<li class="fragment roll-in"><a href="#/implementation"><font color="#ff0088"><b>IMPLEMENTATION</b></font></a> of new services</li>
+						<li class="fragment roll-in"><a href="#/unittest"><font color="#ff0088"><b>UNIT TESTING</b></font></a> your new and changed code</li>
+						<li class="fragment roll-in"><a href="#/codingstandards"><font color="#ff0088"><b>CODING STANDARDS</b></font></a> we enforce</font></li>
+						<li class="fragment roll-in"><a href="#/build"><font color="#ff0088"><b>BUILD</b></font> </a>and deployment systems</li>
+					</ul>
+				</section>
+				<section data-background="#ffffff" data-transition="zoom" id="introduction">					
+						<h1><font color="#ff0088"><b>INTRODUCTION</b></font></h1>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h2>INTRO</h2></div>
+						<div class="content-right">MediaFusion LITE (MFL) is a framework for developing and deploying RESTful services</div>					
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h4>FOUNDATION</h4></div>
+						<div class="content-right">The MFL architecture is designed for rapid development, ease of maintenance, scalable deployment, and performance.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h4>FOUNDATION</h4></div>
+						<div class="content-right">These high level goals have driven a very focused set of features.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h4>EASY TO SETUP</h4></div>
+						<div class="content-right">MFL can be pulled from source control and immediately worked on.  No complex setup, no property file magic.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h4>EASY TO BUILD</h4></div>
+						<div class="content-right">MFL leverages centralized dependency management, creating repeatable builds and allowing for easy upgrade and downgrade of dependencies.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h4>EASY TO DEVELOP</h4></div>
+						<div class="content-right">Creating a new service method can be done in just a few lines of code.</div>
+						<div class="fragment roll-in"><img src="images/intro-service-example.png" /></div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h4>EASY TO DOCUMENT</h4></div>
+						<div class="content-right">Documentation is source code, and exists directly within the implementation of a service.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h4>EASY TO TEST</h4></div>
+						<div class="content-right">MFL automatically generates test client libraries, to support rapid creation of real-world integration tests.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h4>EASY TO DEPLOY</h4></div>
+						<div class="content-right">Deploy with a single jar.  Add a new service to a deployment by adding the service to the classpath and restarting.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h4>EASY TO CONFIGURE</h4></div>
+						<div class="content-right">Favor simplicity of configuration, and expose configuration only when the likelihood of later configuration is high.  Always provide sensible defaults.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h4>AND MORE...</h4></div>
+						<div class="content-right">There's a lot to cover, so let's start looking into MFL's architecture.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h2>INTRO</h2></div>
+						<div class="content-right">MFL does NOT run inside of an application container such as Tomcat</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h2>WHY??<h2></div>
+						<div class="content-right" style="font-size: 24px">							
+											<span class="fragment"> Application server's are configuration intensive</span>
+											<span class="fragment">, <b>HEAVYWEIGHT</b></font></span>
+											<span class="fragment">, PermGen destroying </span>
+											<span class="fragment">, Classpath mangling, 
+											<span class="fragment"><font color="#00aaff">MONSTROSITIES</font></span>
+											<span class="fragment">, with arcane deployment procedures<span>
+											<span class="fragment">, and hidden log files.<span>
+						</div>
+						<br><br>
+						<div class="fragment current-visible">
+							<hr>
+							<h3>Problems aside, there is simply limited value to be gained from using a web container.</h3>
+						</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h2>INTRO</h2></div>
+						<div class="content-right">MFL instead uses best of breed server side components to create a single-purposed REST server architecture.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h2>INTRO</h2></div>
+						<div class="content-right">The foundation of this architecture is Dropwizard, a framework that provides basic wiring between components for HTTP, REST, Dependency Injection, Monitoring, etc.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h2>HTTP</h2></div>
+						<div class="content-right">MFL uses <a href="http://eclipse.org/jetty/" target="_blank">Jetty</a> to instantiate an HTTP server, and to process HTTP, WebSocket, and SPDY protocols.</div>					
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h2>REST</h2></div>
+						<div class="content-right">MFL uses <a href="https://jersey.java.net/" target="_blank">Jersey's</a> implementation of JAX-RS to support the development of RESTful web services.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">					
+						<div class="title-left"><h2>JSON</h2></div>
+						<div class="content-right">MFL request and response data is expressed in JSON.  MFL uses <a href="https://github.com/FasterXML/jackson" target="_blank">Jackson</a> to facilitate mapping of objects to and from JSON.</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h2>GUICE</h2></div>
+						<div class="content-right">MFL is integrated with Google's <a href="https://github.com/google/guice" target="_blank">Guice</a> to provide its dependency injection architecture.</div>
+				</section>
+				
+				<section data-background="#ffffff" data-transition="zoom" id="environment">					
+						<h1><font color="#ff0088"><b>ENVIRONMENT</b></font></h1>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>PREREQ</h4></div>
+						<div class="content-right">The MFL development environment is designed to be easy to set up, but there are a few things you'll need.  If you already have Eclipse, JDK 8, and Maven, 
+						<a href="#/project-import">skip ahead.</a></div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>PREREQ</h4></div>
+						<div class="content-right">To start, you'll need one of these things: <br><img src="images/computer.jpg" style="box-shadow: 0 0 0;"/> </div>
+				</section>	
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>PREREQ</h4></div>
+						<div class="content-right">Download, unzip, and find a home for the <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java Developers.</a></div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>PREREQ</h4></div>
+						<div class="content-right">MFL uses Java 8, so you need to be sure you have installed <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK SE 8</a> from sun</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>PREREQ</h4></div>
+						<div class="content-right">Update eclipse to use Java 8. (Also check the box to store information about method parameters) <img src="images/eclipse-jdk-config.png" style="box-shadow: 0 0 0;"/></div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>PREREQ</h4></div>
+						<div class="content-right">Install <a href="http://maven.apache.org/download.cgi" target="_blank">Maven 3.2.2+</a></div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>PREREQ</h4></div>
+						<div class="content-right">
+							Configure your Eclipse workspace with your install of maven.  Restart Eclipse afterward if it was running.
+							<p>
+							<code style="font-size: 15px;">
+								mvn -Declipse.workspace=&lt;path-to-workspace&gt; eclipse:add-maven-repo
+							</code>
+						</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>OPTIONAL</h4></div>
+						<div class="content-right">Install the <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc" target="_blank">JSONView</a> chrome plugin for much more readable JSON output on chrome.</a></div>
+				</section>
+				<section data-background="#ffffff" data-transition="none" id="project-import">
+						<div class="title-left"><h4>IMPORT</h4></div>
+						<div class="content-right">Import the MFL project into Eclipse, naming the new project <font color="#ffaa00">mfl</font> <img src="images/import-from-git.png" style="box-shadow: 0 0 0;"/></div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>RUN</h4></div>
+						<div class="content-right">Run the <font color="#ffaa00">MediaFusionLite</font> launch configuration from Eclipse</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>TEST</h4></div>
+						<div class="content-right">Execute a simple api to see if the server is running: <a href="http://localhost:8080/system/echo?value=Hello+World" target="_blank">http://localhost:8080/system/echo?value=Hello+World</a></div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>VICTORY</h4></div>
+						<div class="content-right">You are ready to solve the world's media problems.  Let's find out how!</div>
+				</section>
+				<section data-background="#ffffff" data-transition="zoom" id="documentation">					
+						<h1><font color="#ff0088"><b>DOCUMENTATION</b></font></h1>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>WTF</h4></div>
+						<div class="content-right">
+							<q>
+								<font color="666666">&ldquo;C'mon bro, you said I could code now!&rdquo;</font>
+							</q>
+								<p>Hold on to your dangling pointer there, speedracer.  You've still got lots to learn before you touch this code.  And the best place to start is to look at what other people have done using the <font color="#ffaa00">Api Reference.</font></p>
+						</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>API REFERENCE</h4></div>
+						<div class="content-right">MFL uses source code as documentation, and generates a full featured web application that allows you to explore deployed services.  This is the <font color="#ffaa00">Api Reference.</font></div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div style="background-color: #777; width: 95%; height: 5000%; position: absolute; top: -100%; left: -45%; z-index: -1;"></div>
+						<div class="half-left">
+							
+							<pre style="box-shadow: 0 0 0;"><code data-trim style="font-size: 15px; background: #777;">
+							
+@Path("/system")
+@Produces(MediaType.APPLICATION_JSON)
+@Api(value = "/system", description = 
+	"Provides run-time information about this server, " +
+	"including uptime, deployed services, and more.")
+public class SystemResource {
+							
+	@GET
+	@Path("/echo")
+	@ApiOperation(value="Echo a parameter value.")   
+	public SingleValue echo(
+		@ApiParam(value="The value to echo.", required=true) 
+		@QueryParam("value") String value) {
+	
+		return new SingleValue(value);
+	} 
+							</code></pre></div>
+							
+						<div class="half-right">
+						
+						<ul>
+							<li>Documentation is automatically generated using code.</li>
+							<br>
+							<li>JAX-RS annotations, such as <b>@GET</b>, <b>@Path</b>, <b>@Produces</b> are interpreted.</li>
+							<br>
+							<li>That information is supplemented with descriptive annotations like <b>@Api</b> and <b>@ApiOperation</b></li>
+						</ul>
+						</div>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+					<font size="4">This screenshot shows the docs generated from the previous example (along with additional methods)</font>
+					<img src="images/documentation-example.png"/>
+				</section>
+				<section data-background="#ffffff" data-transition="none">
+						<div class="title-left"><h4>API REFERENCE</h4></div>
+						<div class="content-right">Go ahead and spend some time exploring the <a href="http://localhost:8080/doc" target="_blank">Api Reference</a>.  (Make sure you start your MFL server first)</div>
+				</section>
+				<section data-background="#ffffff" data-transition="zoom" id="implementation">					
+						<h1><font color="#ff0088"><b>IMPLEMENTATION</b></font></h1>
+				</section>
+
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
