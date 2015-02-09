@@ -21,7 +21,7 @@ public class BootstrapModule extends AbstractModule {
 
    @Override
    protected void configure() {      
-      bind(Configuration.class).toProvider(() -> _configuration);
+      //bind(Configuration.class).toProvider(() -> _configuration);
    }
 
    public void setEnvironmentData(Configuration configuration, Environment environment, List<DynamicModuleDescriptor> descriptors) {
