@@ -31,7 +31,7 @@ public class TestResourceFactory {
                .encoder(new JacksonEncoder())
                .contract(new JAXRSContract())
                .requestInterceptor(new HmacAuthInterceptor("joel", "milkdud"))      
-               .target(resource, "http://localhost:8080");
+               .target(resource, "http://localhost:80");
    }
    
    static class HmacAuthInterceptor implements RequestInterceptor {

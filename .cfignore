@@ -1,0 +1,17 @@
+src/
+checkstyle.xml
+pom.xml
+README.md
+.classpath
+.externalToolBuilders/
+.project
+.settings/
+LICENSE
+target/site/
+target/classes
+target/dependency-reduced-pom.xml
+target/maven-archiver/
+target/original-mfl1-0.0.1-SNAPSHOT.jar
+target/surefire-reports/
+target/test-classes/
+target/velocity.log

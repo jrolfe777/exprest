@@ -240,6 +240,25 @@
                </execution>
             </executions>
          </plugin>
+      	 <plugin>
+         	<groupId>org.cloudfoundry</groupId>
+         	<artifactId>cf-maven-plugin</artifactId>
+         	<version>1.0.4</version>
+         	<configuration>
+              <target>http://api.run.pivotal.io</target>
+              <org>jrolfe</org>
+              <space>development</space>
+              <appname>exprest</appname>
+              <username>jrolfe@gmail.com</username>
+              <buildpack>https://github.com/jrolfe777/java-buildpack</buildpack>
+              <password>ksd05a55</password>
+              <url>exprest.cfapps.io</url>
+              <memory>512</memory>
+              <instances>1</instances>
+              <path>target/mfl-0.0.1-SNAPSHOT.jar</path>
+          	</configuration>
+      	 </plugin>
+      	 
     </plugins>
   </build>
   
