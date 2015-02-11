@@ -176,6 +176,11 @@
   		<artifactId>amqp-client</artifactId>
   		<version>3.4.3</version>
 	</dependency>
+	 <dependency>
+   		<groupId>io.searchbox</groupId>
+   		<artifactId>jest</artifactId>
+   		<version>0.0.5</version>
+ 	</dependency>
   </dependencies>
   
   <build>
@@ -304,5 +309,13 @@
     <system>Jira</system>
     <url>https://jira.pv.com/browse/MCGA/?selectedTab=com.atlassian.jira.jira-projects-plugin:summary-panel</url>
   </issueManagement>
+  
+   <repositories>
+   	<repository>
+     <id>sonatype</id>
+     <name>Sonatype Groups</name>
+     <url>https://oss.sonatype.org/content/groups/public/</url>
+   	</repository>
+   </repositories>
 
 </project>
