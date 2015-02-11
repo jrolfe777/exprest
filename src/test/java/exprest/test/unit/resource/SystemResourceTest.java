@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
-import test.com.pv.mfl.module.system.resources.SystemResource;
+import test.exprest.module.system.resources.SystemResource;
 import exprest.test.core.TestResourceFactory;
 
 public class SystemResourceTest {
