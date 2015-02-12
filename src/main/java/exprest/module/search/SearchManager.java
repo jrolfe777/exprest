@@ -20,20 +20,29 @@ public class SearchManager implements Managed {
 	protected final JestClient _searchClient;
 	
 	@SuppressWarnings("rawtypes")
-	public SearchManager() throws JsonMappingException, JsonParseException, IOException {
+	public SearchManager() {
 	   
-		Map result = new ObjectMapper().readValue(System.getenv("VCAP_SERVICES"), HashMap.class);
-
-		String connectionUrl = (String) ((Map) ((Map) ((List)
-                   result.get("searchly")).get(0)).get("credentials")).get("uri");
-       // Configuration
-       ClientConfig clientConfig = new ClientConfig.Builder(connectionUrl).multiThreaded(true).build();
-
-       // Construct a new Jest client according to configuration via factory
-       JestClientFactory factory = new JestClientFactory();
-       factory.setClientConfig(clientConfig);
-       factory.getObject();
-       _searchClient = factory.getObject();
+		JestClient client;
+		
+		try {
+			Map result = new ObjectMapper().readValue(System.getenv("VCAP_SERVICES"), HashMap.class);
+	
+			String connectionUrl = (String) ((Map) ((Map) ((List)
+	                   result.get("searchly")).get(0)).get("credentials")).get("uri");
+	       // Configuration
+	       ClientConfig clientConfig = new ClientConfig.Builder(connectionUrl).multiThreaded(true).build();
+	
+	       // Construct a new Jest client according to configuration via factory
+	       JestClientFactory factory = new JestClientFactory();
+	       factory.setClientConfig(clientConfig);
+	       factory.getObject();
+	       client = factory.getObject();
+		} catch (Exception exp) {
+			exp.printStackTrace();
+			client = null;
+		}
+		
+		_searchClient = client;
    }
 
    @Override
@@ -49,6 +58,10 @@ public class SearchManager implements Managed {
    @Provides
    public JestClient providesSearchClient() {
       return _searchClient;
+   }
+   
+   @Provides SearchManager providesSearchManager() {
+	   return this;
    }
    
 }

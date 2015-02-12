@@ -60,7 +60,7 @@ public class Start extends io.dropwizard.Application<Configuration> {
             }
          });
 
-         bootstrap.addBundle(new DynamicModuleBundle(bootstrap, "com.pv.mfl")); 
+         bootstrap.addBundle(new DynamicModuleBundle(bootstrap, "exprest")); 
          bootstrap.addBundle(new StaticAssetsBundle());
          bootstrap.addBundle(new SwaggerBundle());
          bootstrap.addBundle(new ViewBundle());

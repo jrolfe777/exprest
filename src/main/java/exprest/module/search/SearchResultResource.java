@@ -32,8 +32,8 @@ public class SearchResultResource {
    protected final JestClient _searchClient;
    
    @Inject
-   public SearchResultResource(JestClient searchClient) {
-	   _searchClient = searchClient;
+   public SearchResultResource(SearchManager searchManager) {
+	   _searchClient = searchManager.providesSearchClient();
    }
   
    @GET
