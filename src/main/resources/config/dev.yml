@@ -28,7 +28,7 @@ server:
 logging:
    level: INFO
    loggers:
-      com.pv: DEBUG
+      exprest: DEBUG
       org.reflections: WARN
    appenders:
       - type: console
